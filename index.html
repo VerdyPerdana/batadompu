@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pabrik Batu Bata Merah Dompu - Langsung Pengrajin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bata': '#A52A2A',
+                        'bata-dark': '#8b2222',
+                        'semen': '#e5e7eb',
+                        'semen-dark': '#9ca3af',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #A52A2A; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #8b2222; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md fixed w-full z-50 top-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="building-2" class="text-bata h-8 w-8"></i>
+                    <span class="font-bold text-xl text-gray-900">BataKuat Dompu.</span>
+                </div>
+                <!-- Menu Desktop -->
+                <div class="hidden md:flex space-x-6">
+                    <a href="#home" class="text-gray-600 hover:text-bata transition font-medium">Beranda</a>
+                    <a href="#katalog" class="text-gray-600 hover:text-bata transition font-medium">Paket</a>
+                    <a href="#custom-order" class="text-gray-600 hover:text-bata transition font-medium">Cek Ongkir</a>
+                    <a href="#spesifikasi" class="text-gray-600 hover:text-bata transition font-medium">Spesifikasi</a>
+                    <a href="#lokasi" class="text-gray-600 hover:text-bata transition font-medium">Lokasi</a>
+                </div>
+                <div>
+                    <a href="https://wa.me/6285237327281" target="_blank" class="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md font-semibold transition text-sm">
+                        <i data-lucide="message-circle" class="w-4 h-4"></i> Chat WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-24 pb-12 md:pt-32 md:pb-20 bg-semen">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-8">
+            <div class="md:w-1/2 space-y-6">
+                <div class="inline-flex items-center gap-2 bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold">
+                    <i data-lucide="map-pin" class="w-4 h-4"></i> Melayani Seluruh Wilayah Dompu
+                </div>
+                <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
+                    Batu Bata Merah <span class="text-bata">Super Kuat & Presisi</span>
+                </h1>
+                <p class="text-lg text-gray-600">
+                    Satu jenis produk, fokus pada kualitas. Kami menyediakan Bata Merah terbaik dengan layanan antar langsung ke lokasi proyek Anda. Ongkos kirim fleksibel dan transparan menyesuaikan jarak.
+                </p>
+                <div class="flex gap-4">
+                    <a href="#katalog" class="bg-bata hover:bg-bata-dark text-white px-6 py-3 rounded-md font-semibold transition shadow-lg flex items-center gap-2">
+                        <i data-lucide="package" class="w-5 h-5"></i> Lihat Paket
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 relative">
+                <img src="bata.jpg" alt="Tumpukan Batu Bata Merah" class="rounded-lg shadow-2xl object-cover h-[350px] w-full border-4 border-white">
+                <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-lg shadow-xl flex items-center gap-4">
+                    <div class="bg-yellow-100 p-3 rounded-full">
+                        <i data-lucide="truck" class="text-yellow-600 w-8 h-8"></i>
+                    </div>
+                    <div>
+                        <p class="font-bold text-gray-900">Pengiriman Cepat</p>
+                        <p class="text-sm text-gray-500">Bisa Bayar di Tempat (COD)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pilihan Paket Section -->
+    <section id="katalog" class="py-16 bg-gray-50 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900">Pilihan Paket Bata Merah</h2>
+                <p class="text-gray-500 mt-2">Harga di bawah ini adalah harga Bata + Jasa Buruh. <span class="text-bata font-semibold">Sewa mobil (Ongkir) akan dihitung di halaman pemesanan.</span></p>
+            </div>
+            
+            <div id="paket-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- Card Paket di-render via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Pesan Custom Section -->
+    <section id="custom-order" class="py-16 bg-white border-y border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row bg-semen rounded-2xl overflow-hidden shadow-lg border border-gray-200">
+                <div class="lg:w-2/5 p-8 lg:p-12 bg-bata text-white flex flex-col justify-center">
+                    <i data-lucide="calculator" class="w-12 h-12 mb-4 opacity-80"></i>
+                    <h2 class="text-3xl font-bold mb-4">Simulasi & Cek Ongkir</h2>
+                    <p class="text-red-100">Berapa biji bata yang dibutuhkan dan berapa jarak lokasi Anda dari pabrik? Masukkan datanya untuk melihat rincian total biayanya secara transparan.</p>
+                </div>
+                <div class="lg:w-3/5 p-8 lg:p-12 bg-white flex flex-col md:flex-row gap-8">
+                    <!-- Input Area -->
+                    <div class="md:w-1/2 space-y-4">
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-1">Jumlah Bata (Biji)</label>
+                            <input type="number" id="custom-qty" placeholder="Contoh: 1250" min="1" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-bata focus:border-bata text-lg font-semibold" oninput="hitungCustom()">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-1">Jarak Pengiriman (KM)</label>
+                            <input type="number" id="custom-jarak" placeholder="Contoh: 5" min="1" step="0.1" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-bata focus:border-bata text-lg font-semibold" oninput="hitungCustom()">
+                            <p class="text-xs text-gray-500 mt-1">Tarif dasar 1 KM = Rp 100.000 (Maks 2.000 biji/mobil)</p>
+                        </div>
+                        <div class="pt-2">
+                            <button onclick="lanjutCheckoutCustom()" class="w-full bg-bata hover:bg-bata-dark text-white py-3 rounded-md font-bold transition flex justify-center items-center gap-2">
+                                <i data-lucide="shopping-cart" class="w-5 h-5"></i> Pesan Sekarang
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Live Result Area -->
+                    <div class="md:w-1/2 bg-gray-50 p-5 rounded-lg border border-gray-200">
+                        <h4 class="font-bold text-gray-800 mb-3 border-b pb-2">Estimasi Biaya</h4>
+                        <div class="space-y-2 text-sm text-gray-600 mb-4">
+                            <div class="flex justify-between"><span>Harga Bata:</span> <span id="c-bata" class="font-medium">Rp 0</span></div>
+                            <div class="flex justify-between"><span>Jasa Buruh:</span> <span id="c-buruh" class="font-medium">Rp 0</span></div>
+                            <div class="flex justify-between">
+                                <span class="flex items-center gap-1 text-bata font-semibold">Sewa Mobil:</span> 
+                                <span id="c-mobil" class="font-bold text-bata">Rp 0</span>
+                            </div>
+                        </div>
+                        <div class="border-t pt-3 flex justify-between items-center">
+                            <span class="font-bold text-gray-800">Total Keseluruhan:</span>
+                            <span id="c-total" class="text-2xl font-black text-bata">Rp 0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Spesifikasi Section -->
+    <section id="spesifikasi" class="py-16 bg-gray-50 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <div class="md:w-1/2 grid grid-cols-2 gap-4">
+                    <img src="bata 2.jpg" alt="Detail Bata" class="rounded-lg shadow-md w-full h-48 object-cover">
+                    <img src="bata 3.jpg" alt="Dinding Bata" class="rounded-lg shadow-md w-full h-48 object-cover mt-8">
+                </div>
+                <div class="md:w-1/2 space-y-6">
+                    <h2 class="text-3xl font-bold text-gray-900">Spesifikasi Bata Merah Kami</h2>
+                    <p class="text-gray-600">Diproduksi dengan tanah liat pilihan dan proses pembakaran kayu yang matang sempurna, menghasilkan bata merah yang padat, keras, dan tidak mudah patah saat di-loading.</p>
+                    
+                    <div class="bg-red-50 p-6 rounded-xl border border-red-100">
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="ruler" class="text-bata w-6 h-6 shrink-0 mt-0.5"></i>
+                                <div>
+                                    <h4 class="font-bold text-gray-900">Ukuran Standar Presisi</h4>
+                                    <p class="text-sm text-gray-600">Panjang: ± 19 cm | Lebar: ± 9 cm | Tebal: ± 4 cm</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="layers" class="text-bata w-6 h-6 shrink-0 mt-0.5"></i>
+                                <div>
+                                    <h4 class="font-bold text-gray-900">Estimasi Kebutuhan Dinding</h4>
+                                    <p class="text-sm text-gray-600">Sekitar 70 - 75 biji per meter persegi (m²) dinding standar.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="flame" class="text-bata w-6 h-6 shrink-0 mt-0.5"></i>
+                                <div>
+                                    <h4 class="font-bold text-gray-900">Pembakaran Matang</h4>
+                                    <p class="text-sm text-gray-600">Warna merah merata, bunyi nyaring saat diketuk (tanda bata keras dan padat).</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lokasi & Jam Operasional Section (Baru Ditambahkan) -->
+    <section id="lokasi" class="py-16 bg-gray-900 text-white border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row gap-12">
+                <div class="md:w-1/3 space-y-6">
+                    <h2 class="text-3xl font-bold">Kunjungi Lio / Pabrik Kami</h2>
+                    <p class="text-gray-400">Ingin melihat langsung kualitas bata merah kami? Silakan datang ke lokasi pabrik. Kami juga melayani pembelian langsung di tempat (Harga Loko).</p>
+                    
+                    <div class="space-y-4 pt-4">
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="map-pin" class="text-bata w-5 h-5 shrink-0 mt-1"></i>
+                            <div>
+                                <h4 class="font-bold">Alamat Pabrik</h4>
+                                <p class="text-sm text-gray-400">Jl. Raya Lintas Dompu - Bima No. 88, Kec. Dompu, Kab. Dompu, NTB.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="clock" class="text-bata w-5 h-5 shrink-0 mt-1"></i>
+                            <div>
+                                <h4 class="font-bold">Jam Operasional</h4>
+                                <p class="text-sm text-gray-400">Buka Setiap Hari: 07.00 - 17.00 WITA<br>(Hari Jumat buka setengah hari)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-2/3 h-64 md:h-auto min-h-[300px] rounded-xl overflow-hidden bg-gray-800 border border-gray-700">
+                    <!-- Ganti src iframe ini dengan Google Maps embed pabrik Anda yang sebenarnya -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126210.89887714486!2d118.3848074!3d-8.5398254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcb7689d231a31b%3A0x6fbcecf40df70d8a!2sDompu%2C%20Kabupaten%20Dompu%2C%20Nusa%20Tenggara%20Bar.!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ & Informasi -->
+    <section id="faq" class="py-16 bg-white border-t border-gray-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-gray-900">Informasi & FAQ</h2>
+                <p class="text-gray-500 mt-2">Pertanyaan seputar pemesanan dan pengiriman di Dompu.</p>
+            </div>
+            
+            <div class="space-y-4">
+                <div class="border border-gray-200 rounded-lg p-5 hover:shadow-md transition">
+                    <h3 class="font-bold text-lg text-gray-900 flex items-center gap-2 mb-2"><i data-lucide="map" class="text-bata w-5 h-5"></i> Apakah melayani pengiriman ke seluruh Dompu?</h3>
+                    <p class="text-gray-600"><strong>Ya, kami melayani pengiriman ke seluruh wilayah Dompu.</strong> Ongkos sewa mobil dihitung berdasarkan jarak tempuh (KM) dari pabrik ke lokasi proyek Anda. Jarak 1 KM pertama dikenakan tarif dasar Rp 100.000, dan akan menyesuaikan untuk kilometer berikutnya.</p>
+                </div>
+                <div class="border border-gray-200 rounded-lg p-5 hover:shadow-md transition">
+                    <h3 class="font-bold text-lg text-gray-900 flex items-center gap-2 mb-2"><i data-lucide="wallet" class="text-bata w-5 h-5"></i> Apakah bisa Bayar di Tempat (COD)?</h3>
+                    <p class="text-gray-600"><strong>Sangat bisa!</strong> Demi kenyamanan dan keamanan Anda, pembayaran dapat dilakukan secara tunai kepada supir kami setelah batu bata sampai dan selesai diturunkan di lokasi proyek Anda.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/6285237327281?text=Halo%20Admin%20BataKuat%20Dompu,%20saya%20ingin%20bertanya..." target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-2xl hover:bg-green-600 hover:scale-110 transition-transform z-50 flex items-center justify-center group">
+        <i data-lucide="message-circle" class="w-8 h-8"></i>
+        <!-- Tooltip -->
+        <span class="absolute right-16 bg-gray-900 text-white text-sm px-3 py-1.5 rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+            Butuh Bantuan? Chat Kami
+        </span>
+    </a>
+
+    <!-- Modal Form Checkout / Alamat -->
+    <div id="checkout-modal" class="fixed inset-0 bg-black bg-opacity-60 z-[60] hidden flex items-center justify-center p-4 transition-opacity duration-300">
+        <div class="bg-white w-full max-w-md rounded-xl shadow-2xl overflow-hidden transform scale-95 transition-transform duration-300 flex flex-col max-h-[90vh]" id="checkout-panel">
+            <div class="p-5 border-b bg-gray-50 flex justify-between items-center shrink-0">
+                <h3 class="text-lg font-bold text-gray-900 flex items-center gap-2">
+                    <i data-lucide="map-pin" class="text-bata"></i> Tujuan Pengiriman (Dompu)
+                </h3>
+                <button onclick="toggleModal(false)" class="text-gray-400 hover:text-gray-600">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+            
+            <div class="p-6 overflow-y-auto">
+                <!-- Summary Rincian -->
+                <div class="bg-red-50 text-bata-dark p-4 rounded-md mb-5 text-sm border border-red-100 flex flex-col gap-2">
+                    <div class="flex justify-between items-center border-b border-red-200 pb-2">
+                        <span>Bata + Buruh (<span id="co-qty" class="font-bold">0</span> biji)</span>
+                        <span id="co-subtotal" class="font-semibold">Rp 0</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-red-200 pb-2">
+                        <span>Sewa Mobil (Ongkir)</span>
+                        <span id="co-ongkir" class="font-semibold text-bata">Rp 0</span>
+                    </div>
+                    <div class="flex justify-between items-center pt-1">
+                        <span class="font-bold">Total Pembayaran</span>
+                        <span id="co-total" class="font-bold text-lg">Rp 0</span>
+                    </div>
+                </div>
+
+                <!-- Form -->
+                <form id="order-form" onsubmit="prosesPesanan(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Jarak dari Pabrik (KM)</label>
+                        <input type="number" id="co-jarak" required placeholder="Contoh: 5" min="1" step="0.1" class="w-full px-4 py-2 border rounded-md focus:ring-bata focus:border-bata bg-yellow-50" oninput="updateModalTotal()">
+                        <p class="text-xs text-gray-500 mt-1">Kapasitas 1 mobil maks 2.000 biji. Jika lebih, ongkir otomatis dikali lipat.</p>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Nama Pemesan</label>
+                        <input type="text" id="cust-name" required placeholder="Masukkan nama lengkap" class="w-full px-4 py-2 border rounded-md focus:ring-bata focus:border-bata">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Nomor HP / WhatsApp</label>
+                        <input type="tel" id="cust-phone" required placeholder="Contoh: 081234567890" class="w-full px-4 py-2 border rounded-md focus:ring-bata focus:border-bata">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Alamat Lengkap Lokasi Proyek</label>
+                        <textarea id="cust-address" required placeholder="Contoh: Jl. Dompu Raya No. 10, patokan samping masjid." class="w-full px-4 py-2 border rounded-md focus:ring-bata focus:border-bata" rows="2"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-md font-bold flex justify-center items-center gap-2 transition mt-2 shadow-md">
+                        <i data-lucide="send" class="w-5 h-5"></i> Kirim Pesanan ke WhatsApp
+                    </button>
+                    <p class="text-xs text-center text-green-600 mt-2 font-medium">
+                        <i data-lucide="shield-check" class="w-3 h-3 inline"></i> Pembayaran dapat dilakukan di tempat (COD).
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-8 text-center mt-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex items-center justify-center gap-2 mb-4">
+                <i data-lucide="building-2" class="text-bata h-6 w-6"></i>
+                <span class="font-bold text-xl text-white">BataKuat Dompu.</span>
+            </div>
+            <p class="text-sm">© 2026 Pabrik Batu Bata BataKuat Dompu.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Inisialisasi Icons
+        lucide.createIcons();
+
+        // HARGA BATA & BURUH
+        const HARGA_BATA = 800;             
+        const BIAYA_BURUH_PER_BIJI = 50;    
+        
+        // TARIF SEWA MOBIL (ONGKIR) BERDASARKAN JARAK (KM)
+        const TARIF_DASAR_1KM = 100000;      // 100rb untuk 1 KM pertama
+        const TARIF_TAMBAHAN_PER_KM = 15000; // 15rb untuk setiap KM selanjutnya
+        const KAPASITAS_MOBIL = 2000;        // Maksimal bata per 1x angkut
+        
+        // Nomor WA Admin
+        const NO_WA_ADMIN = "6285237327281"; 
+
+        // Daftar Paket Biji
+        const PAKET_LIST = [500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 10000];
+
+        // State Pesanan Saat Ini
+        let pesananAktif = { qty: 0, hargaBata: 0, buruh: 0, jarak: 0, mobil: 0, subtotal: 0, total: 0, trip: 1 };
+
+        // Format Rupiah
+        const formatRp = (angka) => {
+            return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(angka);
+        };
+
+        // Fungsi Hitung Ongkir berdasarkan Jarak
+        function hitungTarifMobil(jarak) {
+            if (!jarak || jarak <= 0) return 0;
+            if (jarak <= 1) return TARIF_DASAR_1KM;
+            // Jika lebih dari 1 KM, hitung dasar + (sisa KM * tarif tambahan)
+            return TARIF_DASAR_1KM + ((jarak - 1) * TARIF_TAMBAHAN_PER_KM);
+        }
+
+        // 1. Render Kartu Pilihan Paket
+        function renderPaket() {
+            const grid = document.getElementById('paket-grid');
+            grid.innerHTML = '';
+            
+            PAKET_LIST.forEach(qty => {
+                const totalBata = qty * HARGA_BATA;
+                const totalBuruh = qty * BIAYA_BURUH_PER_BIJI;
+                const subTotal = totalBata + totalBuruh; // Belum termasuk ongkir mobil
+
+                const card = document.createElement('div');
+                card.className = 'bg-white rounded-xl shadow-md border border-gray-100 flex flex-col hover:shadow-xl transition-shadow overflow-hidden';
+                card.innerHTML = `
+                    <div class="bg-bata text-white text-center py-4 relative">
+                        <h3 class="text-2xl font-black">${qty.toLocaleString('id-ID')} Biji</h3>
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col">
+                        <div class="space-y-2 text-sm text-gray-600 mb-5 flex-1">
+                            <div class="flex justify-between items-center">
+                                <span class="flex items-center gap-1"><i data-lucide="box" class="w-4 h-4"></i> Harga Bata</span>
+                                <span class="font-medium">${formatRp(totalBata)}</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="flex items-center gap-1"><i data-lucide="users" class="w-4 h-4"></i> Jasa Buruh</span>
+                                <span class="font-medium">${formatRp(totalBuruh)}</span>
+                            </div>
+                            <div class="flex justify-between items-center pt-2 border-t border-gray-100">
+                                <span class="flex items-center gap-1"><i data-lucide="truck" class="w-4 h-4"></i> Sewa Mobil</span>
+                                <span class="font-semibold text-xs bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded">Hitung berdasar jarak</span>
+                            </div>
+                        </div>
+                        
+                        <div class="border-t border-gray-200 pt-4 mb-4 text-center">
+                            <p class="text-xs text-gray-500 mb-1">Subtotal (Bata + Buruh):</p>
+                            <div class="text-2xl font-black text-gray-900">${formatRp(subTotal)}</div>
+                        </div>
+                        
+                        <button onclick="siapkanCheckout(${qty}, false)" class="w-full bg-gray-900 hover:bg-gray-800 text-white py-2.5 rounded-md font-bold transition flex items-center justify-center gap-2">
+                            Pesan Paket <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+            lucide.createIcons();
+        }
+
+        // 2. Kalkulasi Fitur Pesan Custom
+        function hitungCustom() {
+            const qty = parseInt(document.getElementById('custom-qty').value) || 0;
+            const jarak = parseFloat(document.getElementById('custom-jarak').value) || 0;
+
+            const totalBata = qty * HARGA_BATA;
+            const totalBuruh = qty * BIAYA_BURUH_PER_BIJI;
+            
+            // Hitung ritase (jumlah trip)
+            const tarifPerTrip = hitungTarifMobil(jarak);
+            const jumlahTrip = Math.ceil(qty / KAPASITAS_MOBIL) || 1;
+            const totalMobil = tarifPerTrip * jumlahTrip;
+            
+            const grandTotal = totalBata + totalBuruh + totalMobil;
+
+            document.getElementById('c-bata').innerText = formatRp(totalBata);
+            document.getElementById('c-buruh').innerText = formatRp(totalBuruh);
+            document.getElementById('c-mobil').innerText = formatRp(totalMobil) + (jumlahTrip > 1 ? ` (${jumlahTrip}x jalan)` : '');
+            document.getElementById('c-total').innerText = formatRp(grandTotal);
+        }
+
+        // 3. Menyiapkan Data Checkout dan Buka Modal
+        function lanjutCheckoutCustom() {
+            const qty = parseInt(document.getElementById('custom-qty').value) || 0;
+            if (qty <= 0) {
+                alert("Mohon masukkan jumlah bata yang benar.");
+                document.getElementById('custom-qty').focus();
+                return;
+            }
+            siapkanCheckout(qty, true);
+        }
+
+        function siapkanCheckout(qty, isCustom = false) {
+            // Set State Dasar (Bata & Buruh)
+            pesananAktif.qty = qty;
+            pesananAktif.hargaBata = qty * HARGA_BATA;
+            pesananAktif.buruh = qty * BIAYA_BURUH_PER_BIJI;
+            pesananAktif.subtotal = pesananAktif.hargaBata + pesananAktif.buruh;
+
+            // Jika dari custom, ambil jarak yang sudah diinput
+            let jarakAwal = '';
+            if (isCustom) {
+                jarakAwal = parseFloat(document.getElementById('custom-jarak').value) || '';
+            }
+            
+            // Set Input Jarak di Modal
+            document.getElementById('co-jarak').value = jarakAwal;
+            
+            // Render Modal
+            updateModalTotal();
+            toggleModal(true);
+        }
+
+        // 4. Update Kalkulasi di dalam Modal Checkout secara Realtime
+        function updateModalTotal() {
+            const inputJarak = parseFloat(document.getElementById('co-jarak').value) || 0;
+            pesananAktif.jarak = inputJarak;
+            
+            // Hitung ritase (jumlah trip)
+            const tarifPerTrip = hitungTarifMobil(inputJarak);
+            const jumlahTrip = Math.ceil(pesananAktif.qty / KAPASITAS_MOBIL) || 1;
+            
+            pesananAktif.mobil = tarifPerTrip * jumlahTrip;
+            pesananAktif.trip = jumlahTrip; // Simpan info trip untuk di WA
+            
+            pesananAktif.total = pesananAktif.subtotal + pesananAktif.mobil;
+
+            document.getElementById('co-qty').innerText = pesananAktif.qty.toLocaleString('id-ID');
+            document.getElementById('co-subtotal').innerText = formatRp(pesananAktif.subtotal);
+            document.getElementById('co-ongkir').innerText = formatRp(pesananAktif.mobil) + (jumlahTrip > 1 ? ` (${jumlahTrip}x jalan)` : '');
+            document.getElementById('co-total').innerText = formatRp(pesananAktif.total);
+        }
+
+        // 5. Toggle Modal Tampil/Sembunyi
+        function toggleModal(show) {
+            const modal = document.getElementById('checkout-modal');
+            const panel = document.getElementById('checkout-panel');
+            
+            if (show) {
+                modal.classList.remove('hidden');
+                setTimeout(() => panel.classList.remove('scale-95'), 10);
+            } else {
+                panel.classList.add('scale-95');
+                setTimeout(() => modal.classList.add('hidden'), 300);
+            }
+        }
+
+        // 6. Proses Kirim Pesanan ke WhatsApp
+        function prosesPesanan(e) {
+            e.preventDefault();
+            
+            // Validasi jarak
+            if (pesananAktif.jarak <= 0) {
+                alert("Mohon masukkan jarak pengiriman (KM) yang valid.");
+                document.getElementById('co-jarak').focus();
+                return;
+            }
+
+            const nama = document.getElementById('cust-name').value;
+            const phone = document.getElementById('cust-phone').value;
+            const alamat = document.getElementById('cust-address').value;
+
+            let pesanWA = `*ORDER BATA MERAH (DOMPU)*%0A%0A`;
+            pesanWA += `*Data Pemesan:*%0A`;
+            pesanWA += `- Nama: ${nama}%0A`;
+            pesanWA += `- No. HP/WA: ${phone}%0A`;
+            pesanWA += `- Lokasi Bawa: ${alamat}%0A`;
+            pesanWA += `- Estimasi Jarak: *${pesananAktif.jarak} KM*%0A%0A`;
+            
+            pesanWA += `*Rincian Pesanan:*%0A`;
+            pesanWA += `- Jumlah: *${pesananAktif.qty.toLocaleString('id-ID')} Biji*%0A`;
+            pesanWA += `- Harga Bata: ${formatRp(pesananAktif.hargaBata)}%0A`;
+            pesanWA += `- Jasa Buruh: ${formatRp(pesananAktif.buruh)}%0A`;
+            pesanWA += `- Sewa Mobil (Ongkir): ${formatRp(pesananAktif.mobil)} _(${pesananAktif.trip}x jalan)_%0A`;
+            pesanWA += `---------------------------%0A`;
+            pesanWA += `*TOTAL PEMBAYARAN: ${formatRp(pesananAktif.total)}*%0A%0A`;
+            
+            pesanWA += `Mohon konfirmasi jadwal pengantaran. Terima kasih.`;
+
+            // Buka WhatsApp
+            window.open(`https://wa.me/${NO_WA_ADMIN}?text=${pesanWA}`, '_blank');
+            
+            // Tutup Modal & Reset Form
+            toggleModal(false);
+            document.getElementById('order-form').reset();
+            document.getElementById('custom-qty').value = '';
+            document.getElementById('custom-jarak').value = '';
+            hitungCustom(); 
+        }
+
+        // Inisialisasi awal
+        renderPaket();
+
+    </script>
+</body>
+</html>
